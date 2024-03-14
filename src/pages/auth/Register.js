@@ -20,15 +20,18 @@ const Register = () => {
     e.preventDefault();
     try {
       navigate("/login");
-      const res = await axios.post(`${REACT_APP_API}/api/v1/auth/register`, {
-        name,
-        email,
-        password,
-        phone,
-        address,
-        answer,
-        role,
-      });
+      const res = await axios.post(
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/auth/register`,
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+          answer,
+          role,
+        }
+      );
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);

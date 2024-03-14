@@ -21,7 +21,7 @@ const CreateProduct = () => {
   const getAllCategory = async (e) => {
     try {
       const { data } = await axios.get(
-        `${REACT_APP_API}/api/v1/category/get-category`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -48,7 +48,7 @@ const CreateProduct = () => {
       productData.append("category", category);
 
       const { data } = await axios.post(
-        `${REACT_APP_API}/api/v1/product/create-product`,
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/product/create-product`,
         productData
       );
       if (data?.success) {

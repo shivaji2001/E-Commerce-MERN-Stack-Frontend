@@ -21,7 +21,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${REACT_APP_API}/api/v1/category/get-category`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -37,7 +37,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${REACT_APP_API}/api/v1/product/product-list/${page}`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -50,7 +50,7 @@ const HomePage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        `${REACT_APP_API}/api/v1/product/product-count`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/product/product-count`
       );
       setTotal(data?.total);
     } catch (error) {
@@ -66,7 +66,7 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       const { data } = await axios.get(
-        `${REACT_APP_API}/api/v1/product/product-list/${page}`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/product/product-list/${page}`
       );
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -98,7 +98,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        `${REACT_APP_API}/api/v1/product/product-filters`,
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/product/product-filters`,
         {
           checked,
           radio,
@@ -211,7 +211,7 @@ const HomePage = () => {
             {products?.map((p) => (
               <div className="card m-1">
                 <img
-                  src={`${REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                  src={`https://e-commerce-mern-stack-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />

@@ -17,7 +17,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${REACT_APP_API}/api/v1/category/create-category`,
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/category/create-category`,
         {
           name,
         }
@@ -36,7 +36,7 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${REACT_APP_API}/api/v1/category/get-category`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -53,7 +53,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `${REACT_APP_API}/api/v1/category/update-category/${selected._id}`,
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data.success) {
@@ -73,7 +73,7 @@ const CreateCategory = () => {
   const handleDelete = async (pid) => {
     try {
       const { data } = await axios.delete(
-        `${REACT_APP_API}/api/v1/category/delete-category/${pid}`
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/category/delete-category/${pid}`
       );
       if (data.success) {
         toast.success(`Category is Deleted `);

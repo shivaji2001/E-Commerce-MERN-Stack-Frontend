@@ -17,10 +17,13 @@ const Login = () => {
     e.preventDefault();
     try {
       navigate("/login");
-      const res = await axios.post(`${REACT_APP_API}/api/v1/auth/login`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/auth/login`,
+        {
+          email,
+          password,
+        }
+      );
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);

@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${REACT_APP_API}/api/v1/auth/forgot-password`,
+        `https://e-commerce-mern-stack-backend.onrender.com/api/v1/auth/forgot-password`,
         {
           email,
           newPassword,
