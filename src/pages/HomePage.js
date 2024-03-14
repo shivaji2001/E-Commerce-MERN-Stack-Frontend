@@ -114,16 +114,16 @@ const HomePage = () => {
     <Layout title={"All Product-Best Offers"}>
       {/* banner image */}
 
-      {/* <img
+      <img
           src="/images/banner.png"
           classname="banner-img"
           alt="bannerimage"
           width='{"100%"}'
-        /> */}
+        />
 
       {/* banner image */}
 
-      <div
+      {/* <div
         id="carouselExampleAutoplaying"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -150,7 +150,7 @@ const HomePage = () => {
               alt="..."
             />
           </div>
-        </div>
+        </div> */}
         <button
           className="carousel-control-prev"
           type="button"
