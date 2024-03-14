@@ -14,13 +14,13 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
   const [role, setRole] = useState(0);
-
+  const REACT_APP_API = process.env.REACT_APP_API;
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       navigate("/login");
-      const res = await axios.post(`/api/v1/auth/register`, {
+      const res = await axios.post(`${REACT_APP_API}/api/v1/auth/register`, {
         name,
         email,
         password,

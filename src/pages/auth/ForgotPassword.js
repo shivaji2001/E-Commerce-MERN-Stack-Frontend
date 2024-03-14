@@ -10,15 +10,18 @@ const ForgotPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
-
+  const REACT_APP_API = process.env.REACT_APP_API;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`/api/v1/auth/forgot-password`, {
-        email,
-        newPassword,
-        answer,
-      });
+      const res = await axios.post(
+        `${REACT_APP_API}/api/v1/auth/forgot-password`,
+        {
+          email,
+          newPassword,
+          answer,
+        }
+      );
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);

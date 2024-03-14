@@ -17,10 +17,12 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
-
+  const REACT_APP_API = process.env.REACT_APP_API;
   const getAllCategory = async (e) => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        `${REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -46,12 +48,12 @@ const CreateProduct = () => {
       productData.append("category", category);
 
       const { data } = await axios.post(
-        "/api/v1/product/create-product",
+        `${REACT_APP_API}/api/v1/product/create-product`,
         productData
       );
       if (data?.success) {
         toast.success("Product Created Successfully");
-        navigate("/dashboard/admin/products");
+        navigate(`${REACT_APP_API}/dashboard/admin/products`);
       } else {
         toast.error(data?.message);
       }

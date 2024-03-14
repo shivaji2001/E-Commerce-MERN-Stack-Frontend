@@ -7,6 +7,7 @@ import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import SmallSpinner from "../components/SmallSpinner";
 const ProductDetails = () => {
+  const REACT_APP_API = process.env.REACT_APP_API;
   const params = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
@@ -22,7 +23,7 @@ const ProductDetails = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${REACT_APP_API}/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -37,7 +38,7 @@ const ProductDetails = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `/api/v1/product/related-product/${pid}/${cid}`
+        `${REACT_APP_API}/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
       setLoading(false);
@@ -53,7 +54,7 @@ const ProductDetails = () => {
       <div className="row container product-details">
         <div className="col-md-6">
           <img
-            src={`/api/v1/product/product-photo/${product._id}`}
+            src={`${REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
             alt={product.name}
             height="300"
@@ -96,7 +97,7 @@ const ProductDetails = () => {
           {relatedProducts?.map((p) => (
             <div className="card m-2" key={p._id}>
               <img
-                src={`/api/v1/product/product-photo/${p._id}`}
+                src={`${REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top"
                 alt={p.name}
               />

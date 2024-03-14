@@ -13,6 +13,7 @@ const CategoryProduct = () => {
   const [category, setCategory] = useState([]);
   const [cart, setCart] = useCart();
   const [showSpinner, setShowSpinner] = useState(false);
+  const REACT_APP_API = process.env.REACT_APP_API;
   useEffect(() => {
     if (params?.slug) getProductsByCat();
   }, [params?.slug]);
@@ -21,7 +22,7 @@ const CategoryProduct = () => {
     try {
       setShowSpinner(true);
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        `${REACT_APP_API}/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
       setCategory(data?.category);
@@ -45,7 +46,7 @@ const CategoryProduct = () => {
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`${REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />

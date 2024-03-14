@@ -5,12 +5,13 @@ import axios from "axios";
 
 const SearchInput = () => {
   const [values, setValues] = useSearch();
+  const REACT_APP_API = process.env.REACT_APP_API;
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `/api/v1/product/search/${values.keyword}`
+        `${REACT_APP_API}/api/v1/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");
