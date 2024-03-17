@@ -112,65 +112,12 @@ const HomePage = () => {
   };
   return (
     <Layout title={"All Product-Best Offers"}>
-      {/* banner image */}
-
       <img
-          src="/images/banner.png"
-          classname="banner-img"
-          alt="bannerimage"
-          width='{"100%"}'
-        />
-
-      {/* banner image */}
-
-      {/* <div
-        id="carouselExampleAutoplaying"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src="/images/banner1.jpg"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/images/banner2.jpg"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/images/banner3.jpg"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-        </div> */}
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-      {/* Carousal ended */}
+        src="/images/banner.png"
+        className="banner-img"
+        alt="bannerimage"
+        width={"100%"}
+      />
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h5 className="text-center">Filter by Category</h5>
